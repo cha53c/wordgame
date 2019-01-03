@@ -31,12 +31,20 @@ Template.guess.helpers({
   counter() {
     return Template.instance().counter.get();
   },
+
 });
 
 Template.guess.events({
   'click button'(event, instance) {
     // submit guess
     instance.counter.set(instance.counter.get() + 1)
+  },
+  'submit .wordguess'(event){
+    console.log("submit");
+    event.preventDefault();
+    const target = event.target;
+    const text = target.text.value;
+    console.log(text);
   },
 });
 
