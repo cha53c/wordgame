@@ -45,6 +45,18 @@ Template.guess.events({
     const target = event.target;
     const text = target.text.value;
     console.log(text);
+    if (text == 'abc'){
+      console.log('correct');
+      var x = document.getElementById("retry");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+    } else {
+      console.log("try again");
+    }
+
   },
 });
 

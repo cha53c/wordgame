@@ -3,10 +3,19 @@
 </head>
 
 <body>
-  <h1>Grid Layout</h1>
-  {{> grid}}
-  <h2>Guess the word</h2>
-  {{>guess}}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h1>Grid Layout</h1>
+        {{> grid}}
+      </div>
+      <div class="col-md-6">
+        <h2>Guess the word</h2>
+        {{> guess}}
+        {{> retry}}
+      </div>
+    </div>
+  </div>
 </body>
 
 <template name="hello">
@@ -28,17 +37,13 @@
    <form class="wordguess" action="index.html" method="post">
      <input type="text" name="text" size=9 placeholder="your guess" class="inputword">
    </form>
-
-   <button>Click Me</button>
+   <p>click enter to submit your answer</p>
+  <!--
+    <button>Click Me</button>
    <p>You've clicked the button {{counter}} times.</p>
+   -->
  </template>
 
- <template name="info">
-   <h2>Learn Meteor!</h2>
-   <ul>
-     <li><a href="https://www.meteor.com/try" target="_blank">Do the Tutorial</a></li>
-     <li><a href="http://guide.meteor.com" target="_blank">Follow the Guide</a></li>
-     <li><a href="https://docs.meteor.com" target="_blank">Read the Docs</a></li>
-     <li><a href="https://forums.meteor.com" target="_blank">Discussions</a></li>
-   </ul>
+ <template name="retry" id="retry">
+   <button>Try again</button>
  </template>
