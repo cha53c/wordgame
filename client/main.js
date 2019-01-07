@@ -23,9 +23,14 @@ Template.hello.helpers({
 
 
 Template.guess.onCreated(function guessOnCreated() {
-  // counter starts at 0
-  this.counter = new ReactiveVar(0);
+
 });
+
+
+Template.alert.onRendered(function initAlert(){
+  $(".alert").hide();
+});
+
 
 Template.guess.helpers({
   counter() {
@@ -47,19 +52,23 @@ Template.guess.events({
     console.log(text);
     if (text == 'abc'){
       console.log('correct');
-      var x = document.getElementById("retry");
-      if (x.style.display === "none") {
-        x.style.display = "block";
-      } else {
-        x.style.display = "none";
-      }
+      $(".alert").show();
+      //var classlist = $(".alert").classList;
+      //console.log(classlist);
+      //$(".alert").classList.remove('hide');
+
     } else {
+      $(".alert").hide();
+
       console.log("try again");
     }
 
   },
 });
 
+Template.alert.helpers({
+  message: "Well Done! You are correct."
+});
 
 Template.grid.helpers({
   letters: [

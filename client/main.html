@@ -12,11 +12,17 @@
       <div class="col-md-6">
         <h2>Guess the word</h2>
         {{> guess}}
-        {{> retry}}
+        {{> alert}}
       </div>
     </div>
   </div>
 </body>
+
+<template name="alert">
+  <div class="alert alert-success alert-dismissible" role="alert">
+     {{message}}
+  </div>
+</template>
 
 <template name="hello">
   <button>Click Me</button>
@@ -36,8 +42,9 @@
  <template name="guess">
    <form class="wordguess" action="index.html" method="post">
      <input type="text" name="text" size=9 placeholder="your guess" class="inputword">
+     {{> retry}}
    </form>
-   <p>click enter to submit your answer</p>
+
   <!--
     <button>Click Me</button>
    <p>You've clicked the button {{counter}} times.</p>
@@ -45,5 +52,5 @@
  </template>
 
  <template name="retry" id="retry">
-   <button>Try again</button>
+   <span> <button>Try again</button> </span>
  </template>
